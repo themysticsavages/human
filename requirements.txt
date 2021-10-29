@@ -1,0 +1,6 @@
+colorthief
+requests
+sty
+webcolors
+opencv-python
+numpy
