@@ -89,6 +89,3 @@ class Human():
       return { 'hair_hx': webcolors.rgb_to_hex(palette), 'hair_rgb': [r, g, b], 'round': c }
     else:
       return str(webcolors.rgb_to_hex(palette)+' '+fg.color+'████'+fg.rs)
-
-#print(human.find_skin_color(sys.argv[1]))
-#print(human.find_shirt_color(sys.argv[1]))
