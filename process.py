@@ -1,10 +1,7 @@
-import argparse
 from lib.human import Human
 
-parser = argparse.ArgumentParser(description='Find human characteristics from image')
-parser.add_argument('-f', help='File to search')
-args = parser.parse_args()
+human = Human('picture.png')
 
-print('Hair color - '+Human().find_hair_color(args.f))
-print('Skin color - '+Human().find_skin_color(args.f))
-print('Shirt color - '+Human().find_shirt_color(args.f))
+print(human.find_hair_color())
+print(human.find_skin_color())
+print(human.find_shirt_color())
