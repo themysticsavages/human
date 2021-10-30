@@ -3,12 +3,15 @@ from sty import fg, rs, Style, RgbFg
 import numpy as np
 import webcolors
 import requests
+import dotenv
 import cv2
 import os
 
 '''
 Find human characteristics 
 '''
+
+phroomkey = dotenv.dotenv_values('.env')['PHOTOROOMAPIKEY']
 
 class Colors():
   '''
@@ -68,7 +71,7 @@ class Human():
     '''
     self.f = f
   def find_skin_color(self, json=False):
-    BG('XXX').remove_bg(self.f, 'transp_'+self.f)
+    BG(phroomkey).remove_bg(self.f, 'transp_'+self.f)
     min_yc = np.array([0,133,77],np.uint8)
     max_yc = np.array([235,173,127],np.uint8)
 
@@ -92,7 +95,7 @@ class Human():
       return webcolors.rgb_to_hex(color)+fg.color+' ████'+fg.rs
 
   def find_shirt_color(self, json=False):
-    BG('XXX').remove_bg(self.f, 'transp_'+self.f)
+    BG(phroomkey).remove_bg(self.f, 'transp_'+self.f)
     image = cv2.imread('transp_'+self.f, cv2.IMREAD_UNCHANGED)
     h,w,c = image.shape
 
@@ -111,7 +114,7 @@ class Human():
     else:
       return webcolors.rgb_to_hex(color)+fg.color+' ████'+fg.rs
   def find_hair_color(self, json=False):
-    BG('XXX').remove_bg(self.f, 'transp_'+self.f)
+    BG(phroomkey).remove_bg(self.f, 'transp_'+self.f)
     image = cv2.imread('transp_'+self.f, cv2.IMREAD_UNCHANGED)
     h,w,c = image.shape
 
